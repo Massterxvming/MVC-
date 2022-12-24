@@ -1,0 +1,42 @@
+﻿@model Conris.DBA.ViewModel.AchievementSearch
+           <script type="text/javascript" src="/Content/js/jquery.js"></script>
+ @using (Html.BeginForm("DManage", "Achievement", new RouteValueDictionary { { "Page", "" } }, FormMethod.Get, new { @id = "UserSub" }))
+ {
+    <div class="tools" >
+           @if (DBA.BLL.Users.GetNowUserType() == "管理员")
+           {
+		  <div style=" float:left; height:100%;text-align:center;padding:10px;">
+     教师：@Html.DropDownList("TeacherID")
+       
+		 学号：@Html.TextBoxFor(m => m.UserID, new { @style = "height:20px;" }) 
+      
+              
+             课程：@Html.DropDownList("CourseID")
+             <button  onclick="Submit()"  style="width:137px;height:35px;">搜索</button>
+             </div> 
+           }
+           else
+           {
+               <div style=" float:left; height:100%;text-align:center;padding:10px;">
+     教师：@Html.DropDownList("TeacherID")
+       
+		
+      
+              
+             课程：@Html.DropDownList("CourseID")
+             <button  onclick="Submit()"  style="width:137px;height:35px;">搜索</button>
+             </div> 
+           }
+        
+        <div>    
+        </div>
+
+        
+   
+        </div>
+ }
+<script type="text/ecmascript">
+    function Submit() {
+        $("#UserSub").submit();
+    }
+</script>

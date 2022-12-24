@@ -1,0 +1,38 @@
+﻿@model List<DBA.Model.Course>
+
+
+    <table class="table">
+    	<thead>
+    	<tr>
+        <th>序号</th>
+        <th>课程</th>
+
+            
+        <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+              @if (Model != null && Model.Count > 0)
+{
+    int i = 0; 
+       
+            foreach (var item in Model)
+        {
+            i++;    
+        <tr>
+        <td>@i</td>
+        <td>@item.CourseName</td>
+        <td><a href="/Course/Create?ID=@item.ID"   >修改</a> 
+            <a href="#" onclick="Del(@item.ID)"   >删除</a> 
+           
+        </td>
+        </tr>    
+            }
+} 
+        </tbody>
+    </table>
+    
+
+
+    
+

@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\学生管理系统",
+    "\\学生管理系统\\学生管理系统",
+    "\\学生管理系统\\学生管理系统\\BLL",
+    "\\学生管理系统\\学生管理系统\\BLL\\obj",
+    "\\学生管理系统\\学生管理系统\\BLL\\obj\\Debug",
+    "\\学生管理系统\\学生管理系统\\DB",
+    "\\学生管理系统\\学生管理系统\\packages",
+    "\\学生管理系统\\学生管理系统\\packages\\Microsoft.AspNet.Razor.zh-Hans.1.0.20105.408",
+    "\\学生管理系统\\学生管理系统\\web",
+    "\\学生管理系统\\学生管理系统\\web\\Scripts",
+    "\\学生管理系统\\学生管理系统\\web\\ViewModel"
+  ],
+  "SelectedNode": "\\学生管理系统\\学生管理系统\\web\\ViewModel\\AdminUser.cs",
+  "PreviewInSolutionExplorer": false
+}

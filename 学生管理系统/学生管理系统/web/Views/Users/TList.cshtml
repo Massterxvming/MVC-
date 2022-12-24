@@ -1,0 +1,66 @@
+﻿@model List<DBA.Model.Users>
+
+@{
+    string cname = @TempData["carrname"].ToString();
+    string[] arr = cname.Split(',');
+    int row = arr.Length + 5;
+    }
+    <table class="table">
+    	<thead>
+            <tr>
+                <td colspan="@row" style="font-size:30px;">成绩报表</td>
+            </tr>
+    	<tr>
+       
+        <th>学号</th>
+            <th>姓名</th>
+             <th>班级</th>
+            @foreach (var item in arr)
+            {
+                if (item!="")
+                {
+                      <th>@item</th>
+                }
+            }
+             <th>总分</th>
+             <th>总分排行</th>
+      
+        </tr>
+        </thead>
+        <tbody>
+              @if (Model != null && Model.Count > 0)
+{
+    int i = 0; 
+            foreach (var item in Model)
+        {
+            i++;
+            string fs = @item.UserNum;
+            string[] gfs = fs.Split(',');   
+        <tr>
+       
+             
+       
+            <td>@item.LoginName</td>
+             <td>@item.UserName</td>
+             <td>@item.Str1</td>
+            
+     @foreach (var iteitem in gfs)
+     {
+         if (iteitem!="")
+         {
+               <td>@iteitem</td>
+         }
+     }
+             <td>@item.LoginPSD</td>
+             <td>@i</td>
+       
+        </tr>    
+            }
+} 
+        </tbody>
+    </table>
+    
+
+
+    
+

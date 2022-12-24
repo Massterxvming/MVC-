@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/Content/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/Content/css/jquery.dialog.css" />
+<link rel="stylesheet" href="/Content/css/index.css" />
+
+<title>学生成绩管理系统 </title>
+  
+</head>
+
+<body >
+<div id="container">
+	<div id="hd">
+    	<div class="hd-wrap ue-clear">
+        	<div class="top-light"></div>
+           
+            <div class="login-info ue-clear" style="width:240px;">
+                <div class="welcome ue-clear" style="width:220px;"><span>学生成绩管理系统欢迎您，@DBA.BLL.Users.GetNowUserName()</span></div>
+              
+            </div>
+            <div class="toolbar ue-clear">
+             
+                 <a href="javascript:;"  id="btnQiut"   class="quit-btn exit"></a>
+            </div>
+        </div>
+    </div>
+    <div id="bd">
+    	<div class="wrap ue-clear">
+        	<div class="sidebar">
+            	<h2 class="sidebar-header"><p>功能导航</p></h2>
+                 <ul class="nav">
+                     @if (DBA.BLL.Users.GetNowUserType() == "管理员")
+                     {
+                          
+                      <li class="office "><div class="nav-header"><a href="javascript:;"  class="ue-clear"><span>课程管理</span><i class="icon"></i></a></div>
+                          <ul class="subnav">
+                        	<li><a href="javascript:;" date-src="/Course/CourseManage">课程管理</a></li>
+                            <li><a href="javascript:;" date-src="/Course/Create">添加课程</a></li>
+                        </ul>
+                	</li>
+                       <li class="office "><div class="nav-header"><a href="javascript:;"  class="ue-clear"><span>教师管理</span><i class="icon"></i></a></div>
+                          <ul class="subnav">
+                        	<li><a href="javascript:;" date-src="/Teacher/TeacherManage">教师管理</a></li>
+                            <li><a href="javascript:;" date-src="/Teacher/Create">添加教师</a></li>
+                        </ul>
+                	</li>
+                      
+                       <li class="office "><div class="nav-header"><a href="javascript:;"  class="ue-clear"><span>学生管理</span><i class="icon"></i></a></div>
+                          <ul class="subnav">
+                        	<li><a href="javascript:;" date-src="/Users/UsersManage">学生管理</a></li>
+                            <li><a href="javascript:;" date-src="/Users/Create">添加学生</a></li>
+                        </ul>
+                	</li> 
+                     }
+                   
+                      <li class="office "><div class="nav-header"><a href="javascript:;"  class="ue-clear"><span>成绩管理</span><i class="icon"></i></a></div>
+                          <ul class="subnav">
+                        	<li><a href="javascript:;" date-src="/Achievement/ScheduleManage">成绩管理</a></li>
+                               @if (DBA.BLL.Users.GetNowUserType()=="管理员")
+                    {
+                            <li><a href="javascript:;" date-src="/Achievement/Create">添加成绩</a></li>
+                               }  
+                              	<li><a href="javascript:;" date-src="/Achievement/DManage">单科排名</a></li>
+                               	<li><a href="javascript:;" date-src="/Users/ZManage">总分排名</a></li>
+
+                                	<li><a href="javascript:;" date-src="/Users/TManage">成绩报表</a></li>
+                        </ul>
+                	</li>
+                        </ul>
+            </div>
+            <div class="content">
+            	<iframe src="/Achievement/ScheduleManage" id="iframe" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+<script type="text/javascript" src="/Content/js/jquery.js"></script>
+<script type="text/javascript" src="/Content/js/common.js"></script>
+<script type="text/javascript" src="/Content/js/core.js"></script>
+<script type="text/javascript" src="/Content/js/jquery.dialog.js"></script>
+<script type="text/javascript" src="/Content/js/index.js"></script>
+
+</html>
+<script type="text/javascript">
+    
+    $(function () {
+
+       
+        $("#btnQiut").click(function () {
+            $.ajax({
+                type: "post",
+                url: "/Home/LogOff",
+                success: function (data) {
+                    if (data) {
+                        parent.location.href = "/Home/Login";
+                    }
+                }
+            });
+        });
+    });
+</script>
+

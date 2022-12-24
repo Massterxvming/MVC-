@@ -1,0 +1,106 @@
+﻿@model Conris.DBA.ViewModel.TeacherSearch
+@{
+    ViewBag.Title = "DepartmentManage";
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+    <style type="text/css">  
+        table  
+        {  
+            border-collapse: collapse;  
+          width:1000px;
+            text-align: center;  
+        }  
+        table td, table th  
+        {  
+            border: 1px solid #cad9ea;  
+            color: #666;  
+            height: 30px;  
+        }  
+        table thead th  
+        {  
+            background-color: #CCE8EB;  
+            width: 100px;  
+        }  
+        table tr:nth-child(odd)  
+        {  
+            background: #fff;  
+        }  
+        table tr:nth-child(even)  
+        {  
+            background: #F5FAFA;  
+        }  
+    </style>
+<script type="text/javascript" src="/Content/js/jquery.js"></script>
+    <script type="text/javascript" src="/Scripts/AdminUser/UserManage.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".click").click(function () {
+            $(".tip").fadeIn(200);
+        });
+
+        $(".tiptop a").click(function () {
+            $(".tip").fadeOut(200);
+        });
+
+
+
+        $(".cancel").click(function () {
+            $(".tip").fadeOut(100);
+        });
+
+    });
+</script>
+
+
+</head>
+
+
+<body style="width:800px;">
+
+    
+    <div class="rightinfo">
+    
+
+    @Html.Action("TeacherSearch", Model)
+  @Html.Action("TeacherList", Model)
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+
+</body>
+
+</html>
+<input type="hidden" id="hidID" />
+<script type="text/ecmascript">
+    function Del(id) {
+        if (confirm("确定删除该教师吗？")) {
+                $.ajax({
+                    type: "post",
+                    traditional: true,
+                    url: "/Teacher/Del",
+                    data: { ID: id },
+                    datatpye: "json",
+                    success: function (data) {
+                        if (data) {
+                           alert("删除成功！")
+                                window.location.reload();
+                        }
+                    }
+                });
+            }
+    }
+</script>
