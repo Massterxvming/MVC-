@@ -1,0 +1,1 @@
+Scaffold-DbContext "server=127.0.0.1;user=root;pwd=760089954plm;port=3306;database=student;sslmode=none;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -UseDatabaseNames -Force//在控制台上复制即可
